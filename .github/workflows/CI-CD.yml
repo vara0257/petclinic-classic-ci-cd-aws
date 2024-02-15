@@ -12,22 +12,32 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Checkout code
+        
       - name: Set up environment
         uses: actions/setup-java@v1
         with:
           java-version: 1.8  
+          
       - name: Build, Test and Publish package (.war file) to GitHub
         run: mvn -B clean package
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}            
-      - name: Deploy .war file to a Tomcat in Amazon EC2
-        uses: appleboy/scp-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          source: "target/petclinic.war"
-          target: "/home/fernando/apache-tomcat-8.5.54/webapps"
-          strip_components: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+
+      - name: Set environmental variables
+        shell: bash
+        run: |
+          pwd
+          ls -la 
+
+          
+      # - name: Deploy .war file to a Tomcat in Amazon EC2
+      #   uses: appleboy/scp-action@master
+      #   with:
+      #     host: ${{ secrets.HOST }}
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.PASSWORD }}
+      #     port: ${{ secrets.PORT }}
+      #     source: "target/petclinic.war"
+      #     target: "/home/fernando/apache-tomcat-8.5.54/webapps"
+      #     strip_components: 1
 #Test          
