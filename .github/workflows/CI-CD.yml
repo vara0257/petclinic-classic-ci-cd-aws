@@ -49,11 +49,11 @@ jobs:
       - name: Push docker image
         shell: bash
         run: |
-          aws ecr get-login-password --region region | docker login --username AWS --password-stdin 767397855923.dkr.ecr.us-east-1.amazonaws.com
-          docker images
-          docker tag p1docker 767397855923.dkr.ecr.us-east-1.amazonaws.com/sse:latest
-          docker push 767397855923.dkr.ecr.us-east-1.amazonaws.com/sse:latest
-
+          #aws ecr get-login-password --region region | docker login --username AWS --password-stdin 767397855923.dkr.ecr.us-east-1.amazonaws.com
+          #docker images
+          #docker tag p1docker 767397855923.dkr.ecr.us-east-1.amazonaws.com/sse:latest
+          #docker push 767397855923.dkr.ecr.us-east-1.amazonaws.com/sse:latest
+          aws ecr describe-repositories
 
 
           
