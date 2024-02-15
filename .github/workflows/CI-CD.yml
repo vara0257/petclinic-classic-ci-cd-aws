@@ -27,6 +27,7 @@ jobs:
         shell: bash
         run: |
           pwd
+          cd target
           ls -la 
 
           
