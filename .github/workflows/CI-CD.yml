@@ -30,3 +30,4 @@ jobs:
           source: "target/petclinic.war"
           target: "/home/fernando/apache-tomcat-8.5.54/webapps"
           strip_components: 1
+#Test          
